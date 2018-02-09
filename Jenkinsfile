@@ -1,4 +1,4 @@
-ppipeline {
+pipeline {
     agent any  
     stages{
         stage('Build Docker Image ') {
@@ -21,7 +21,7 @@ ppipeline {
                    image 'flask_app:1.0'
                }
            }
-           steps {
+			steps {
                echo 'done'
            }
 
