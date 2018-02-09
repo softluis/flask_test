@@ -1,9 +1,7 @@
 pipeline {
-    agent {
-        label any
-    }    
+    agent any  
     stages{
-        stage('Build Docker Image') {
+        stage('Build Docker Image ') {
             agent {
                 dockerfile { 
                     reuseNode true                     
