@@ -28,7 +28,7 @@ pipeline {
         }
 		stage('test container') {
 			steps {
-				sh 'echo exit | telnet localhost 5000'
+				sh 'echo 'exit' | telnet localhost 5000'
 			}
         } 
         
