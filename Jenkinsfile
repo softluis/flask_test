@@ -1,4 +1,4 @@
-pipeline {
+pipipeline {
     agent any  
     stages{
         stage('Build Docker Image ') {
@@ -17,8 +17,8 @@ pipeline {
 		stage('create container'){
 			agent {
 				docker {
-                   	container_name: flask_Container
-  			image: flask_app
+                   reuseNode true
+                   image 'flask_app'
                }
             }
 			steps {
