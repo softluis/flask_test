@@ -17,8 +17,8 @@ pipeline {
 		stage('create container'){
 			agent {
 				docker {
-                   reuseNode true
-                   image 'flask_app'
+                   	container_name: flask_Container
+  			image: flask_app
                }
             }
 			steps {
