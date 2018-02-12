@@ -18,7 +18,7 @@ pipeline {
 			agent {
 				docker {
                    reuseNode true
-                   image 'flask_app'
+                   image 'flask_app:1.0'
                }
             }
 			steps {
