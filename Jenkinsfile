@@ -15,16 +15,12 @@ pipeline {
             }
 		}
 		stage('create container'){
-			agent {
-				docker {
-                   reuseNode true
-                   image 'flask_app'
-               }
-            }
-			steps {
-               echo 'done'
-            }
-
+		withDockerContainer('flask_app') {
+   		steps {
+               		echo 'done'
+            	}
+	}
+			
         }
 		stage('test container') {
 			steps {
