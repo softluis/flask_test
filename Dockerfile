@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM centos:latest
 
 RUN \
     apt-get update \
