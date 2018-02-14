@@ -15,12 +15,12 @@ pipeline {
             }
 		}
 		stage('create container'){
-		withDockerContainer('flask_app') {
-   		steps {
-               		echo 'done'
-            	}
-	}
 			
+		withDockerContainer('flask_app') {	
+	}
+	steps {
+               		echo 'done'
+            	}		
         }
 		stage('test container') {
 			steps {
