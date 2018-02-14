@@ -1,7 +1,7 @@
 FROM centos:latest
 
 RUN \
-    yum install apt
+    yum install apt \
     apt-get update \
     && apt-get install -qy \
     python python-setuptools \
