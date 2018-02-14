@@ -1,4 +1,4 @@
-FROM ubuntu:16.04.2
+FROM ubuntu:16.04.2 LTS
 
 RUN \
     apt-get update \
