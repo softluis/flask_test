@@ -1,7 +1,7 @@
 pipeline {
-    agent any  
+    agent any
     stages{
-        stage('Build Docker Image ') {
+        stage('Build Docker Image') {
             agent {
                 dockerfile { 
                     reuseNode true                     
@@ -13,21 +13,7 @@ pipeline {
             steps {
                 echo 'ls'
             }
-		}
-		stage('create container'){
-			
-		withDockerContainer('flask_app') {	
-	}
-	steps {
-               		echo 'done'
-            	}		
         }
-		stage('test container') {
-			steps {
-				sh 'echo exit | telnet localhost 5000'
-			}
-        } 
-        
     }
     post {
         always {
