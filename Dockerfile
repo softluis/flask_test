@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:ubuntu:14.04
 
 RUN \
     apt-get update \
