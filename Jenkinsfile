@@ -16,7 +16,7 @@ pipeline {
 		}
 		stage('create container'){
 			 steps {
-                 		sh 'docker run --name nomeflask flask_app 5000:5000 && echo exit'
+                 		sh 'docker run -d --name nomeflask flask_app 5000:5000'
 			
             	} 
             }
