@@ -21,7 +21,6 @@ pipeline {
                    image 'flask_app'
 			}
 		   sh 'docker run --name nomeflask -it flask_app 5000:5000'
-"
                
             }
 			steps {
