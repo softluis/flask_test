@@ -16,7 +16,7 @@ pipeline {
 		}
 		stage('create container'){
 			 steps {
-                 		sh 'docker run --name nomeflask -it flask_app 5000:5000'
+                 		sh 'docker run --name nomeflask flask_app 5000:5000'
             	} 
             }
 		stage('test container') {
