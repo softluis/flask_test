@@ -19,7 +19,7 @@ pipeline {
 				docker {
                    reuseNode true
                    image 'flask_app'
-		   args 'flask_app:1.0'
+		   args '-v $HOME/.m2:/root/.m2:z -u root'
                }
             }
 			steps {
