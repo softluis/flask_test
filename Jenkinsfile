@@ -19,6 +19,7 @@ pipeline {
 				docker {
                    reuseNode true
                    image 'flask_app'
+		   args 'flask_app:1.0'
                }
             }
 			steps {
