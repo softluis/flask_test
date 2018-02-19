@@ -15,11 +15,10 @@ pipeline {
             }
 		}
 		stage('create container'){
-			
-		   sh 'docker run --name nomeflask -it flask_app 5000:5000'
-               
+			 steps {
+                 		sh 'docker run --name nomeflask -it flask_app 5000:5000'
+            	} 
             }
-
 		stage('test container') {
 			steps {
 				sh 'echo exit | telnet localhost 5000'
