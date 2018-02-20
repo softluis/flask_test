@@ -22,10 +22,10 @@ pipeline {
             }
 		stage('test container') {
 			steps {
+				AWESOME_BUILD = "${env.BUILD_ID + '/working'}"
 				
 				
-				script{ 
-					def IP = sh(script:'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask',returnStdout: true).trim()
+					IP = "${sh('docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask')
 					//sh 'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask; echo $? > status'
 					//def r = readFile('status').trim()
 					
@@ -35,10 +35,10 @@ pipeline {
 					
 				//).trim()
 				
-					sh 'curl -o -I -L -s -w "%{http_code}\n" $(IP)'
+					sh 'curl -o -I -L -s -w "%{http_code}\n" $IP'
 				}
 				
-			}
+			
         } 
         
     }
