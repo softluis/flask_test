@@ -1,4 +1,4 @@
-def s = 'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask'
+//def s = 'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask'
 pipeline {
     agent any  
     stages{
@@ -24,7 +24,7 @@ pipeline {
 		stage('test container') {
 			steps {
 				
-				sh '${IP}'
+				sh 'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask'
 				
 					
 					//IP = "${sh('docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask')}"
@@ -37,7 +37,7 @@ pipeline {
 					
 				//).trim()
 				
-					sh 'curl -o -I -L -s -w "%{http_code}\n" $IP'
+					//sh 'curl -o -I -L -s -w "%{http_code}\n" $IP'
 				}
 				
 			
