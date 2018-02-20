@@ -23,7 +23,7 @@ pipeline {
 		stage('test container') {
 			steps {
 				Teste = sh (
-					'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask',
+					'docker inspect -f {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}} nomeflask',
 					returnStdout: true
 				).trim()
 				
