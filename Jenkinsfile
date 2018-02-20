@@ -22,7 +22,7 @@ pipeline {
             }
 		stage('test container') {
 			steps {
-				echo 'Testing....'
+				echo 'echo exit |telnet localhost 5000'
 			}
         } 
         
