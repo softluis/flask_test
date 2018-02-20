@@ -22,7 +22,9 @@ pipeline {
             }
 		stage('test container') {
 			steps {
-				echo 'echo exit |telnet localhost 5000'
+				IP = sh ('docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask')
+				sh 'curl -o -I -L -s -w "%{http_code}\n" ${IP}'
+				
 			}
         } 
         
