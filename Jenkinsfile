@@ -1,4 +1,4 @@
-def IP = 'teste'
+def ip = 'teste'
 def link = 'http://'
 
 pipeline {
@@ -29,7 +29,7 @@ pipeline {
 				//sh "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask"
 				
 					
-					IP = sh(returnStdout: true, script: "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask")
+					ip = sh(returnStdout: true, script: "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask")
 					//sh 'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask; echo $? > status'
 					//def r = readFile('status').trim()
 				
