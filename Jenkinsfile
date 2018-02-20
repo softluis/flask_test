@@ -32,9 +32,9 @@ pipeline {
 					//def r = readFile('status').trim()
 				script{	
 					
-			IP = sh (returnStdout: true, script: "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask",).trim()
-				
-				sh 'curl -o -I -L -s -w "%{http_code}\n" ${IP}'
+				IP = sh (returnStdout: true, script: "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask",).trim()
+				sh 'echo $IP'
+				sh 'curl -o -I -L -s -w "%{http_code}\n" $IP'
 				}
 		}		
 			
