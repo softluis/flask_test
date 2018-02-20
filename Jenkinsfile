@@ -25,7 +25,7 @@ pipeline {
 				
 				
 				script{ 
-					IP = sh(script:'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask',returnStdout: true).trim()
+					def IP = sh(script:'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask',returnStdout: true).trim()
 					//sh 'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask; echo $? > status'
 					//def r = readFile('status').trim()
 					
