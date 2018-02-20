@@ -22,9 +22,11 @@ pipeline {
             }
 		stage('test container') {
 			steps {
-				script{
-					sh 'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask; echo $? > status'
-					def r = readFile('status').trim()
+				
+				IP = $('docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask')
+				//script{
+					//sh 'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask; echo $? > status'
+					//def r = readFile('status').trim()
 					
 					
 				//Teste = sh (returnStdout: true ,
@@ -32,8 +34,8 @@ pipeline {
 					
 				//).trim()
 				
-					sh 'curl -o -I -L -s -w "%{http_code}\n" ${r}'
-				}
+					sh 'curl -o -I -L -s -w "%{http_code}\n" $(IP)'
+				//}
 				
 			}
         } 
