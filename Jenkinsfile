@@ -23,14 +23,14 @@ pipeline {
             }
 		stage('test container') {
 			steps {
-				
+				script{	
 				//sh "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask"
 				
 					
 					IP = sh(returnStdout: true, script: "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask")
 					//sh 'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask; echo $? > status'
 					//def r = readFile('status').trim()
-				script{	
+				
 					
 				//IP = sh "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask"
 					sh "echo ${IP}"
