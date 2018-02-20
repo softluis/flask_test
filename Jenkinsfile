@@ -30,14 +30,12 @@ pipeline {
 					//IP = $("docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask")
 					//sh 'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask; echo $? > status'
 					//def r = readFile('status').trim()
+				script{	
 					
-					
-				IP = sh (returnStdout: true ,
-					script: "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask",
-					
-				).trim()
+			IP = sh (returnStdout: true, script: "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask",).trim()
 				
 				sh 'curl -o -I -L -s -w "%{http_code}\n" ${IP}'
+				}
 		}		
 			
         } 
