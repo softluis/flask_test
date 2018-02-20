@@ -22,10 +22,10 @@ pipeline {
             }
 		stage('test container') {
 			steps {
-				AWESOME_BUILD = "${env.BUILD_ID + '/working'}"
 				
 				
-					IP = "${sh('docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask')}"
+					coiso = "teste"
+					//IP = "${sh('docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask')}"
 					//sh 'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask; echo $? > status'
 					//def r = readFile('status').trim()
 					
