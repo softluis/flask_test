@@ -1,4 +1,4 @@
-def s = "Whoa"
+def s = 'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask'
 pipeline {
     agent any  
     stages{
@@ -24,6 +24,7 @@ pipeline {
 		stage('test container') {
 			steps {
 				
+				sh '${IP}'
 				
 					
 					//IP = "${sh('docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask')}"
