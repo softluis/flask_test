@@ -1,4 +1,6 @@
 def IP = 'teste'
+def link = 'http://'
+
 pipeline {
     agent any  
     stages{
@@ -34,7 +36,7 @@ pipeline {
 					
 				//IP = sh "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask"
 					sh "echo ${IP}"
-					link = 'http://'
+					
 					//sh "echo $IP"
 					//sh "echo '$IP'"
 					sh 'curl -o -I -L -s -w "%{http_code}\n" ${link}${IP}'
