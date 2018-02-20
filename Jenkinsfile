@@ -24,7 +24,7 @@ pipeline {
 		stage('test container') {
 			steps {
 				
-				sh 'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask'
+				sh 'docker inspect -f {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}} nomeflask'
 				
 					
 					//IP = "${sh('docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask')}"
