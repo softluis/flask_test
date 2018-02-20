@@ -22,7 +22,7 @@ pipeline {
             }
 		stage('test container') {
 			steps {
-				Teste = sh '(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask)'
+				Teste = sh (docker inspect -f {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}} nomeflask)
 				sh 'curl -o -I -L -s -w "%{http_code}\n" ${Teste}'
 				
 			}
