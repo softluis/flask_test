@@ -23,12 +23,16 @@ pipeline {
 		stage('test container') {
 			steps {
 				script{
-				Teste = sh (returnStdout: true ,
-					 script: 'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask',
+					sh 'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask; echo $? > status'
+					def r = readFile('status').trim()
 					
-				).trim()
+					
+				//Teste = sh (returnStdout: true ,
+					//script: 'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask',
+					
+				//).trim()
 				
-					sh 'curl -o -I -L -s -w "%{http_code}\n" ${Teste}'
+					sh 'curl -o -I -L -s -w "%{http_code}\n" ${r}'
 				}
 				
 			}
