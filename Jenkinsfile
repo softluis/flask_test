@@ -38,8 +38,7 @@ pipeline {
 				//).trim()
 				
 				sh 'curl -o -I -L -s -w "%{http_code}\n" ${IP}'
-				
-				
+		}		
 			
         } 
         
