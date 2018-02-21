@@ -51,13 +51,12 @@ pipeline {
 					sh "echo '${container}'"
 					sh "echo '${container}'"
 					
-					if ( '${container}' == '000' ){ 
-						sh "echo 'Container Saudavel'"
+					if ( '${container}' == 200 ){ 
+						println('Container Saudavel')
 						}
 					else {
-						sh "echo 'Erro no Container'"
+						println('Erro no Container')
 						}
-					
 					
 				}
 		}		
