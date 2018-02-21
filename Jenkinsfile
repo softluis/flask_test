@@ -39,11 +39,11 @@ pipeline {
 					sh "echo ${ip}"
 					sh "echo ${link}"
 					sh "echo ${porta}"
-					ip2 = "${ip}"
-					result = sh "echo $porta$link$ip2$porta"
+				
+					result = sh "echo $link$ip$"
 					
 					//sh(script: "echo", args: ["hello", "world", env.MY_ENV, my_other_def])
-					//sh 'curl -o -I -L -s -w "%{http_code}\n" $result'
+					sh 'curl -o -I -L -s -w "%{http_code}\n" $result+:5000'
 				}
 		}		
 			
