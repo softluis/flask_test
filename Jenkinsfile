@@ -1,6 +1,6 @@
 def ip = 'teste'
 def link = 'http://'
-def port = ':5000'
+def porta = ':5000'
 
 pipeline {
     agent any  
@@ -38,7 +38,7 @@ pipeline {
 				//IP = sh "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask"
 					sh "echo ${ip}"
 					sh "echo ${link}"
-					sh "echo ${port}"
+					sh "echo ${porta}"
 					result = sh "echo $link$ip"
 					
 					//sh(script: "echo", args: ["hello", "world", env.MY_ENV, my_other_def])
