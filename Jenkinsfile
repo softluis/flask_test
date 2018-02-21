@@ -46,7 +46,7 @@ pipeline {
 					
 					
 					//sh(script: "echo", args: ["hello", "world", env.MY_ENV, my_other_def])
-					teste = sh(returnStdout: true, script: 'curl -o -I -L -s -w "%{http_code}\n" "{$result}"').trim()
+					teste = sh(returnStdout: true, script: 'curl -o -I -L -s -w "%{http_code}\n" "$result"').trim()
 					sh "echo '$teste'"
 				}
 		}		
