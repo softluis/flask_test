@@ -1,6 +1,6 @@
 def ip = 'teste'
 def link = 'http://'
-df port = ':5000'
+def port = ':5000'
 
 pipeline {
     agent any  
