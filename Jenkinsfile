@@ -46,9 +46,9 @@ pipeline {
 					
 					
 					//sh(script: "echo", args: ["hello", "world", env.MY_ENV, my_other_def])
-					container = sh "curl -o -I -L -s -w \"%{http_code}\n\" ${result}"
+					container = sh(returnStdout: true, script:"curl -o -I -L -s -w \"%{http_code}\n\" ${result}").trim()
 					
-					if ( '${container}' == '200' ){ 
+					if ( '${container}' == 200 ){ 
 						sh "echo result = 'Container Saudavel'"
 						}
 					else {
