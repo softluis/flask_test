@@ -51,8 +51,8 @@ pipeline {
 					sh "echo '${container}'"
 					sh "echo '${container}'"
 					
-					if ( '${container}' == '200' ){ 
-						sh "echo result = 'Container Saudavel'"
+					if ( '${container}' == 200 ){ 
+						sh "echo 'Container Saudavel'"
 						}
 					else {
 						sh "echo 'Erro no Container'"
