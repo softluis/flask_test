@@ -47,7 +47,7 @@ pipeline {
 					
 					//sh(script: "echo", args: ["hello", "world", env.MY_ENV, my_other_def])
 					//(returnStdout: true, script: 'curl -o -I -L -s -w "%{http_code}\n" "$result"').trim()
-					sh "curl -o -I -L -s -w "%{http_code}\n" $result+':5000'"
+					sh 'curl -o -I -L -s -w "%{http_code}\n" $result+':5000''
 					
 				}
 		}		
