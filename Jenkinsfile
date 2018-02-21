@@ -50,7 +50,7 @@ pipeline {
 					sh "echo '${container}'"
 					sh "echo '${container}'"
 					
-					if (${container} == '200' ){ 
+					if ($container == 200 ){ 
 						println('Container Saudavel')
 						}
 					else {
