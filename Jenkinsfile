@@ -51,7 +51,7 @@ pipeline {
 					sh "echo '${container}'"
 					sh "echo '${container}'"
 					
-					if ( '${container}' == 200 ){ 
+					if ( '${container}' == '000' ){ 
 						sh "echo 'Container Saudavel'"
 						}
 					else {
