@@ -48,7 +48,7 @@ pipeline {
 					//sh(script: "echo", args: ["hello", "world", env.MY_ENV, my_other_def])
 					container = sh(returnStdout: true, script:"curl -o -I -L -s -w \"%{http_code}\n\" ${result}").trim()
 					sh "echo '${container}'"
-					sh "echo '${container}'"
+					println('${container}')
 					sh "echo '${container}'"
 					
 					if ( '${container}' == 200 ){ 
