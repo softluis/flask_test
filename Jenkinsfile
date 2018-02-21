@@ -46,7 +46,14 @@ pipeline {
 					
 					
 					//sh(script: "echo", args: ["hello", "world", env.MY_ENV, my_other_def])
-					sh "curl -o -I -L -s -w \"%{http_code}\n\" ${result}"
+					container = sh "curl -o -I -L -s -w \"%{http_code}\n\" ${result}"
+					
+					if ( $container ==200 ){ 
+						sh "echo result = 'Container Saudavel'"
+						}
+					else {
+						sh "echo result = 'Erro no Container'"
+						}
 					
 					
 				}
