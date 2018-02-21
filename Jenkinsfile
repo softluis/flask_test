@@ -42,6 +42,8 @@ pipeline {
 				
 					result = sh(returnStdout: true, script: "echo $link$ip$porta").trim()
 					
+					sh 'echo ${result}'
+					
 					
 					//sh(script: "echo", args: ["hello", "world", env.MY_ENV, my_other_def])
 					sh 'curl -o -I -L -s -w "%{http_code}\n" $result'
