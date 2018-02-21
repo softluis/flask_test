@@ -40,14 +40,15 @@ pipeline {
 					sh "echo ${link}"
 					sh "echo ${porta}"
 				
-					result = sh(returnStdout: true, script: "echo $link$ip$porta").trim()
+					result = sh(returnStdout: true, script: "echo $link$ip").trim()
 					
 					sh "echo '${result}'"
 					
 					
 					//sh(script: "echo", args: ["hello", "world", env.MY_ENV, my_other_def])
-					teste = sh(returnStdout: true, script: 'curl -o -I -L -s -w "%{http_code}\n" "$result"').trim()
-					sh "echo '$teste'"
+					//(returnStdout: true, script: 'curl -o -I -L -s -w "%{http_code}\n" "$result"').trim()
+					sh "curl -o -I -L -s -w "%{http_code}\n" $result+':5000'"
+					
 				}
 		}		
 			
