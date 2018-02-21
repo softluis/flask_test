@@ -39,7 +39,7 @@ pipeline {
 					sh "echo ${ip}"
 					sh "echo ${link}"
 					sh "echo ${port}"
-					result = sh "echo $link$ip.concat('5000')"
+					result = sh "'echo $link$ip$port'"
 					
 					
 					//sh 'curl -o -I -L -s -w "%{http_code}\n" $result'
