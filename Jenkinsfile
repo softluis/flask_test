@@ -39,7 +39,7 @@ pipeline {
 					sh "echo ${ip}"
 					sh "echo ${link}"
 					sh "echo ${port}"
-					result = sh(script: "echo",args:[$link,$ip,$port])
+					result = sh(script: "echo",args:[link,ip,port])
 					
 					//sh(script: "echo", args: ["hello", "world", env.MY_ENV, my_other_def])
 					//sh 'curl -o -I -L -s -w "%{http_code}\n" $result'
