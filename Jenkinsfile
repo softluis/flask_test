@@ -30,7 +30,7 @@ pipeline {
 				//sh "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask"
 				
 					
-					ip = sh(returnStdout: true, script: "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask")
+					ip = sh(returnStdout: true, script: "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask").trim()
 					//sh 'docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomeflask; echo $? > status'
 					//def r = readFile('status').trim()
 				
@@ -40,7 +40,7 @@ pipeline {
 					sh "echo ${link}"
 					sh "echo ${porta}"
 				
-					result = sh "echo $link$ip"
+					result = sh "echo $link$ip$porta"
 					
 					//sh(script: "echo", args: ["hello", "world", env.MY_ENV, my_other_def])
 					sh 'curl -o -I -L -s -w "%{http_code}\n" $result$porta'
