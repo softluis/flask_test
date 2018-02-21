@@ -38,7 +38,7 @@ pipeline {
 					sh "echo ${ip}"
 					sh "echo ${link}"
 					result = sh "echo $link$ip"
-					//sh 'curl -o -I -L -s -w "%{http_code}\n" ${ip}'
+					sh 'curl -o -I -L -s -w "%{http_code}\n" $result'
 				}
 		}		
 			
